@@ -1,17 +1,21 @@
 using UnityEngine;
 using System.Collections.Generic;
 using System.Collections;
+using TMPro;
 
 public class GameManger : MonoBehaviour
 {
     public List<GameObject> targets; //Lists let us pass in the type of thing we want, and array you have to declare what it is when you make it(?)
     private float spawnRate = 1.0f;
-
+    private int score;
+    public TextMeshProUGUI scoreText;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         StartCoroutine(SpawnTarget());
+        score = 0;
+        scoreText.text = "Score: " +score;
     }
 
     // Update is called once per frame
