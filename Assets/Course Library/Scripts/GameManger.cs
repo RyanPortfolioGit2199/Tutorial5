@@ -9,6 +9,7 @@ public class GameManger : MonoBehaviour
     private float spawnRate = 1.0f;
     private int score;
     public TextMeshProUGUI scoreText;
+    public TextMeshProUGUI gameOverText;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -41,5 +42,10 @@ public class GameManger : MonoBehaviour
     {
         score += scoreToAdd;
         scoreText.text = "Score: " + score;
+    }
+
+    public void GameOver()
+    {
+        gameOverText.gameObject.SetActive(true);
     }
 }
