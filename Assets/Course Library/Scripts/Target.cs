@@ -36,9 +36,12 @@ public class Target : MonoBehaviour
 
     private void OnMouseDown()
     {
-        Destroy(gameObject);
-        Instantiate(explosionParticle, transform.position, explosionParticle.transform.rotation);
-        gameManager.UpdateScore(pointValue); //when destroy the targets Updates the score in the GameManger script based on the pointValue of each object destroyed.
+        if (gameManager.isGameActive)// if isGameActive bool from the GameManager Script is False, dont destroy the remaining Targets on Screen and don't update the score any more.
+        {
+            Destroy(gameObject);
+            Instantiate(explosionParticle, transform.position, explosionParticle.transform.rotation);
+            gameManager.UpdateScore(pointValue); //when destroy the targets Updates the score in the GameManger script based on the pointValue of each object destroyed.
+        }
 
     }
 
